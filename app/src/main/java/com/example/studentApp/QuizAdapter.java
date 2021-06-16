@@ -74,6 +74,8 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
         // Set item views based on your views and data model
         TextView textView = holder.title;
         textView.setText(contact.getTitle());
+        TextView textView1 = holder.description;
+        textView1.setText(contact.getDescription());
     }
 
     // Returns the total count of items in the list

@@ -1,6 +1,7 @@
 package com.example.studentApp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, listeActions);
         ListView listMenu = (ListView) findViewById(R.id.listeActionss);
         listMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = listMenu.getItemAtPosition(position);
@@ -44,6 +44,26 @@ public class MainActivity extends AppCompatActivity {
         String newsButton = "News";
         listeActions.add(quizzButton);
         listeActions.add(newsButton);
+        SharedPreferences settings = getSharedPreferences("A", 0);
+        String id_user = settings.getString(getString(R.string.id_user), "");
+        String password = settings.getString(getString(R.string.password), "");
+        if(id_user == null || id_user == "" || password == null || password == "") {
+            Toast.makeText(MainActivity.this, "user="+id_user.toString(), Toast.LENGTH_LONG).show();
+            // we need to get and id_user
+            SharedPreferences.Editor editor = settings.edit();
+            String default_password = "test";
+            urlRequest getNewID = new urlRequest("action=create&nom=studentAccount&prenom=account&mail=m&mdp="+default_password);
+            String newID = getNewID.executeRequest();
+            newID = newID.trim();
+            Toast.makeText(MainActivity.this, "newID_GENERATED="+newID, Toast.LENGTH_LONG).show();
+            editor.putString(getString(R.string.id_user), newID);
+            editor.putString(getString(R.string.password), default_password);
+            editor.apply();
+        }
+        id_user = settings.getString(getString(R.string.id_user), "");
+        password = settings.getString(getString(R.string.password), "");
+        Toast.makeText(MainActivity.this, "Connected with "+id_user.trim(), Toast.LENGTH_LONG).show();
+
     }
 
     public void goToSettingsMenu (View view){

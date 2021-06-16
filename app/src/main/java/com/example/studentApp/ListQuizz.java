@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,7 +28,8 @@ public class ListQuizz extends AppCompatActivity implements QuizAdapter.OnClickL
         recyclerViewQuiz = (RecyclerView) findViewById(R.id.recyclerQuizList);
 
         // Initialize contacts
-        listQuiz = Quiz.createQuizList(20);
+        Quiz temp = new Quiz();
+        listQuiz = temp.createQuizList(20);
         // Create adapter passing in the sample user data
         QuizAdapter adapter = new QuizAdapter(listQuiz, this);
         // Attach the adapter to the recyclerview to populate items
@@ -42,6 +44,8 @@ public class ListQuizz extends AppCompatActivity implements QuizAdapter.OnClickL
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent i = new Intent(ListQuizz.this, com.example.studentApp.CreateQuizz.class);
+                startActivity(i);
             }
         });
     }
@@ -49,8 +53,12 @@ public class ListQuizz extends AppCompatActivity implements QuizAdapter.OnClickL
     @Override
     public void onQuizClick(int position){
         Toast.makeText(ListQuizz.this, "Selected :" + " " + position, Toast.LENGTH_LONG).show();
-        Intent i = new Intent(ListQuizz.this, com.example.studentApp.TakeQuizz.class);
-        startActivity(i);
+        Intent intent = new Intent(ListQuizz.this, com.example.studentApp.TakeQuizz.class);
+        String quizzNumber;
+        quizzNumber = listQuiz.get(position).getId();
+        Log.e("", quizzNumber);
+        intent.putExtra("id", quizzNumber);
+        startActivity(intent);
     }
 
 }

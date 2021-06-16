@@ -8,10 +8,15 @@
     <string name="sync_header">Sync</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="settings_id">Identifiants de compte</string>
+    <string name="settings_changeAccount">Changer le compte</string>
+    <string name="settings_playNumber">Nombre de quiz joué</string>
+    <string name="settings_stats_menu">Statistiques</string>
     <!-- Messages Preferences -->
-    <string name="signature_title">Quizz 1</string>
     <string name="reply_title">Default reply action</string>
-
+    <string name="signature_title">Quizz 1</string>
+    <string name="id_user">id_user</string>
+    <string name="password">password</string>
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>
