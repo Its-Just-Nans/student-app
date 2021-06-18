@@ -31,19 +31,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
                 Object o = listMenu.getItemAtPosition(position);
-                if(o.toString() == "Quizz"){
+                if(position == 0){
                     Intent i = new Intent(MainActivity.this, com.example.studentApp.ListQuizz.class);
                     startActivity(i);
-                }else{
+                }else if (position == 1){
+                    Intent i = new Intent(MainActivity.this, com.example.studentApp.CreateQuizz.class);
+                    startActivity(i);
+                }else {
                     Toast.makeText(MainActivity.this, "Selected :" + " " + o.toString(), Toast.LENGTH_LONG).show();
                 }
             }
         });
+
+
         listMenu.setAdapter(myAdapter);
-        String quizzButton = "Quizz";
-        String newsButton = "News";
-        listeActions.add(quizzButton);
-        listeActions.add(newsButton);
+        listeActions.add("Faire un quiz");
+        listeActions.add("Créer un quiz");
+        listeActions.add("Voir les news");
+
+
         SharedPreferences settings = getSharedPreferences("A", 0);
         String id_user = settings.getString(getString(R.string.id_user), "");
         String password = settings.getString(getString(R.string.password), "");

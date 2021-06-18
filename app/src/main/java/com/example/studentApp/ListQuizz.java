@@ -38,16 +38,6 @@ public class ListQuizz extends AppCompatActivity implements QuizAdapter.OnClickL
         recyclerViewQuiz.setLayoutManager(new LinearLayoutManager(this));
         // That's all!
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.newQuizButton);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                Intent i = new Intent(ListQuizz.this, com.example.studentApp.CreateQuizz.class);
-                startActivity(i);
-            }
-        });
     }
 
     @Override

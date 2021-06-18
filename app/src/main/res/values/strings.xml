@@ -17,6 +17,11 @@
     <string name="signature_title">Quizz 1</string>
     <string name="id_user">id_user</string>
     <string name="password">password</string>
+    <!-- create_quiz -->
+    <string name="create_quiz_ph_reponses">Écrivez votre réponse</string>
+    <string name="create_quiz_ph_title">Écrivez un titre</string>
+    <string name="create_quiz_ph_description">Écrivez une courte description</string>
+    <string name="create_quiz_ph_lesson">Écrivez une petite leçon</string>
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>

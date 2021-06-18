@@ -48,6 +48,7 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = getSharedPreferences("A", 0).edit();
         editor.putString(getString(R.string.id_user), newID);
         editor.putString(getString(R.string.password), default_password);
+        editor.apply();
         AcccountNumber.setText(newID);
     }
 }
