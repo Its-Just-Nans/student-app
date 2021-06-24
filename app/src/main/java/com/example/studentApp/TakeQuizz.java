@@ -59,10 +59,12 @@ public class TakeQuizz extends AppCompatActivity {
 
     public void changeQuestions(){
         this.questionIndex = this.questionIndex + 1;
-        if(this.questionIndex == 4){
+        String nextLesson = this.quizSelected.getLesson(this.questionIndex);
+        Log.e("", "nextlesson" + nextLesson);
+        if(this.questionIndex == 4 || nextLesson.equals("")){
             // end of quiz
             SharedPreferences settings = getSharedPreferences("A", 0);
-            String nbQuizPlayed = settings.getString("nbQuizPlayed", "");
+            String nbQuizPlayed = settings.getString("nbQuizPlayed", "0");
             Integer nbQuizPlayedInInt = Integer.parseInt(nbQuizPlayed);
             nbQuizPlayedInInt = nbQuizPlayedInInt + 1;
             SharedPreferences.Editor editor = settings.edit();
@@ -72,9 +74,9 @@ public class TakeQuizz extends AppCompatActivity {
             Toast.makeText(TakeQuizz.this, "Bien joué !", Toast.LENGTH_LONG).show();
             finish();
         }else {
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        viewPager.setAdapter(sectionsPagerAdapter);
-        tabs.setupWithViewPager(viewPager);
+            SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+            viewPager.setAdapter(sectionsPagerAdapter);
+            tabs.setupWithViewPager(viewPager);
         }
     }
 }

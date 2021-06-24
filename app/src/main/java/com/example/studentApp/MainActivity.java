@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         listMenu.setAdapter(myAdapter);
-        listeActions.add("Faire un quiz");
+        listeActions.add("Passer un quiz");
         listeActions.add("Créer un quiz");
         listeActions.add("Voir les news");
         listeActions.add("Autres ...");

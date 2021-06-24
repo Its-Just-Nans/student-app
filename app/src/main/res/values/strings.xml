@@ -6,11 +6,12 @@
     <!-- Preference Titles -->
     <string name="messages_header">Vos Quizz</string>
     <string name="sync_header">Sync</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_1">Leçon</string>
+    <string name="tab_text_2">Question</string>
     <string name="settings_id">Identifiants de compte</string>
     <string name="settings_changeAccount">Changer le compte</string>
     <string name="settings_playNumber">Nombre de quiz joué</string>
+    <string name="settings_nbQuiz">Nombre de quiz créé</string>
     <string name="settings_stats_menu">Statistiques</string>
     <!-- Messages Preferences -->
     <string name="reply_title">Default reply action</string>

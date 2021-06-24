@@ -13,9 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class SettingsActivity extends AppCompatActivity {
     TextView AcccountNumber;
     TextView QuizPlayNumber;
+    TextView nbQuiz;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,19 +29,23 @@ public class SettingsActivity extends AppCompatActivity {
         // set elements
         AcccountNumber = (TextView) findViewById(R.id.id_user);
         QuizPlayNumber = (TextView) findViewById(R.id.quiz_play_number);
-
+        nbQuiz = (TextView) findViewById(R.id.nb_quiz);
 
         // get value from sharedPreferences
         SharedPreferences settings = getSharedPreferences("A", 0);
         String id_user = settings.getString(getString(R.string.id_user), "");
-        String play_number = settings.getString("quizPlay", "");
+        String play_number = settings.getString("nbQuizPlayed", "0");
 
         // we set value on screen
         AcccountNumber.setText(id_user);
-        if(play_number == ""){
-            QuizPlayNumber.setText("0");
-        }else{
-            QuizPlayNumber.setText(play_number);
+        QuizPlayNumber.setText(play_number);
+        try {
+            JSONObject jsonRep = new urlRequest("action=get&obj=valeur&type=quiz&idU="+id_user).executeRequestJSON();
+            JSONArray arrayOfQuizz = jsonRep.getJSONArray("valeurs");
+            Integer longeur = arrayOfQuizz.length();
+            nbQuiz.setText(String.valueOf(longeur));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
