@@ -1,5 +1,7 @@
 package com.example.studentApp;
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,8 +49,10 @@ public class urlRequest {
             response = todo.get();
         } catch (ExecutionException e) {
             e.printStackTrace();
+            response = "";
         } catch (InterruptedException e) {
             e.printStackTrace();
+            response = "";
         }
         return response;
     }
@@ -62,7 +66,7 @@ public class urlRequest {
             try {
                 c = u.openConnection();
                 //temps maximun alloué pour se connecter
-                c.setConnectTimeout(60000);
+                c.setConnectTimeout(10000);
                 //temps maximun alloué pour lire
                 c.setReadTimeout(60000);
                 //flux de lecture avec l'encodage des caractères UTF-8
@@ -88,16 +92,15 @@ public class urlRequest {
         URL u;
 
         response = "http://infort.gautero.fr/index.php?"+this.url;
-
+        Log.e("", "ICi");
         try {
             u = new URL(response);
-        } catch (
-                MalformedURLException e) {
+        } catch (MalformedURLException e) {
             // Ce n'est qu'un exemple, pas de traitement propre de l'exception
             e.printStackTrace();
             u = null;
         }
-
+        Log.e("", "ICi2" + response);
         // On crée l'objet qui va gérer la thread
         exe = Executors.newSingleThreadExecutor();
         // On lance la thread
@@ -112,7 +115,7 @@ public class urlRequest {
         }
 
         JSONObject rep;
-
+        Log.e("", "ICi3");
         try {
             rep = new JSONObject(response);
         } catch (JSONException e) {

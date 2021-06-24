@@ -24,11 +24,12 @@ public class quizz_part1 extends Fragment {
         takeQuiz_lesson = (TextView) view.findViewById(R.id.takeQuiz_lesson);
         takeQuiz_title = (TextView) view.findViewById(R.id.takeQuiz_title);
         actualQuiz = ((TakeQuizz) getActivity()).getQuiz();
-        String question = actualQuiz.getQuestions(0);
+
+        Integer index = ((TakeQuizz) getActivity()).getQuestionsIndex();
+
+        String lesson = actualQuiz.getLesson(index);
         // show lesson
-        Log.e("", question);
-        takeQuiz_lesson.setText(question);
-        takeQuiz_title.setText(actualQuiz.getLesson());
+        takeQuiz_title.setText(lesson);
         return view;
     }
 }

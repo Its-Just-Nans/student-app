@@ -37,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
                 }else if (position == 1){
                     Intent i = new Intent(MainActivity.this, com.example.studentApp.CreateQuizz.class);
                     startActivity(i);
-                }else {
+                }else  if (position == 2){
+                    Intent i = new Intent(MainActivity.this, com.example.studentApp.NewsActivity.class);
+                    startActivity(i);
+                }else{
                     Toast.makeText(MainActivity.this, "Selected :" + " " + o.toString(), Toast.LENGTH_LONG).show();
                 }
             }
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         listeActions.add("Faire un quiz");
         listeActions.add("Créer un quiz");
         listeActions.add("Voir les news");
-
+        listeActions.add("Autres ...");
 
         SharedPreferences settings = getSharedPreferences("A", 0);
         String id_user = settings.getString(getString(R.string.id_user), "");

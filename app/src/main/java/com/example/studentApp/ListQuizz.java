@@ -29,7 +29,11 @@ public class ListQuizz extends AppCompatActivity implements QuizAdapter.OnClickL
 
         // Initialize contacts
         Quiz temp = new Quiz();
-        listQuiz = temp.createQuizList(20);
+        Log.e("", "Quiz created");
+        listQuiz = temp.createQuizList(1);
+
+        Log.e("", "Quizzes created");
+
         // Create adapter passing in the sample user data
         QuizAdapter adapter = new QuizAdapter(listQuiz, this);
         // Attach the adapter to the recyclerview to populate items
@@ -42,12 +46,13 @@ public class ListQuizz extends AppCompatActivity implements QuizAdapter.OnClickL
 
     @Override
     public void onQuizClick(int position){
-        Toast.makeText(ListQuizz.this, "Selected :" + " " + position, Toast.LENGTH_LONG).show();
+        // Toast.makeText(ListQuizz.this, "Selected :" + " " + position, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(ListQuizz.this, com.example.studentApp.TakeQuizz.class);
-        String quizzNumber;
-        quizzNumber = listQuiz.get(position).getId();
+        String quizzNumber = listQuiz.get(position).getId();
+        String idCreator = listQuiz.get(position).getIdCreator();
         Log.e("", quizzNumber);
         intent.putExtra("id", quizzNumber);
+        intent.putExtra("idU", idCreator);
         startActivity(intent);
     }
 

@@ -44,7 +44,6 @@
         android:foreground="@android:drawable/ic_menu_preferences"
         android:foregroundTint="#000000"
         android:onClick="goToSettingsMenu"
-        app:icon="@android:drawable/ic_menu_preferences"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

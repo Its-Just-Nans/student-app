@@ -22,6 +22,9 @@
     <string name="create_quiz_ph_title">Écrivez un titre</string>
     <string name="create_quiz_ph_description">Écrivez une courte description</string>
     <string name="create_quiz_ph_lesson">Écrivez une petite leçon</string>
+    <string name="create_quiz_ph_question">Écrivez une question</string>
+    <string name="create_quiz_title">Titre</string>
+    <string name="create_quiz_bigTitle">Créer un quiz</string>
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>
