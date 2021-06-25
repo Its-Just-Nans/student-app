@@ -3,20 +3,20 @@
 <details>
 <summary>Click to expand</summary>
 
-- [Principale activités](#principale-activités)
+- [Principales activités](#principales-activités)
 - [Répartition des tâches](#répartition-des-tâches)
 - [Temps de travail](#temps-de-travail)
 - [Source d'inspiration](#source-dinspiration)
 - [Details techniques](#details-techniques)
-- [Classe `Quiz`](#classe-quiz)
+- [Class `Quiz`](#class-quiz)
 - [Class `urlRequest`](#class-urlrequest)
 - [Utilisation des `sharedPreferences`](#utilisation-des-sharedpreferences)
 - [API documentation](#api-documentation)
   - [Créé un nouvel utilisateur](#créé-un-nouvel-utilisateur)
-  - [Connaitre le quiz d'un utilisateur](#connaitre-le-quiz-dun-utilisateur)
-  - [Connaitre le nombre de quiz créé par un utilisateur](#connaitre-le-nombre-de-quiz-créé-par-un-utilisateur)
+  - [Connaître le quiz d'un utilisateur](#connaître-le-quiz-dun-utilisateur)
+  - [Connaître le nombre de quiz créé par un utilisateur](#connaître-le-nombre-de-quiz-créé-par-un-utilisateur)
   - [Récupérer le quiz](#récupérer-le-quiz)
-- [Utilisation des éléments Android](#utilisation-des-éléments-android)
+- [Utilisation des éléments Androids](#utilisation-des-éléments-androids)
 - [Avantages et inconvénients](#avantages-et-inconvénients)
   - [Inconvénients](#inconvénients)
   - [Avantages](#avantages)
@@ -28,11 +28,11 @@
 
 ---
 
-Cette application est une application pour les étudiants, mais elle est ciblé sur le fait de jouer et créer des quizs.
+Cette application est une application pour les étudiants, mais elle est cibler sur le fait de jouer et créer des quizs.
 
 Les quizs sont stockés sur le serveur, et donc ils peuvent être récupérer par tous les utilisateurs, ainsi, tous les utilisteurs peuvent jouer aux quizs
 
-## Principale activités
+## Principales activités
 
 - Passer un quiz
 - Créer un quiz
@@ -51,7 +51,7 @@ Les quizs sont stockés sur le serveur, et donc ils peuvent être récupérer pa
 
 - Nans
   - en TP : apprentissage d'Android, chez lui
-  - chez lui : application des apprentissage (donc pas mal de temps)
+  - chez lui : application des apprentissages (donc pas mal de temps)
 
 - Maxence
   - en TP : apprentissage du JAVA et d'Android
@@ -62,19 +62,19 @@ Les quizs sont stockés sur le serveur, et donc ils peuvent être récupérer pa
 
 ## Source d'inspiration
 
-- Quiz créer par Nans en JavaScript
+- Application de quizs créé par Nans en JavaScript
 - L'application SoloLearn
 
 ## Details techniques
 
 - utilisation des sharedPreferences pour stocker l’id et le mot de passe du User
 - utilisation du serveur comme API et donc de stockage des données
-- création d’une Class “Quiz” qui permet de stocker un quiz
-- création d’une classe urlRequest qui permet d’effectuer des requêtes très simplement
+- création d’une Class `Quiz` qui permet de stocker un quiz
+- création d’une Class `urlRequest` qui permet d’effectuer des requêtes très simplement
   - avec un retour en JSON
   - avec un retour en String
 
-## Classe `Quiz`
+## Class `Quiz`
 
 ```java
 private String description;
@@ -94,7 +94,7 @@ private ArrayList<String> questions;
 > - `id` est l'ID du quiz
 > - `creatorId` l'ID du créateur du quiz
 > - `lessons` est un tableau de leçons, on accède à la première leçon avec l'index 0
-> - `reponses` est un tableau d'entier, cela permet de connaitre l'index de la bonne réponse dans `choices`
+> - `reponses` est un tableau d'entier, cela permet de connaître l'index de la bonne réponse dans `choices`
 > - `choices` est un tableau de tableau, l'index 0 contient donc un tableau des réponses
 > - `questions` est un tableau de questions, on accède à la première question avec l'index 0
 
@@ -120,7 +120,7 @@ Cela permet de faire des requêtes très facilement
 
 ## Utilisation des `sharedPreferences`
 
-Exemple d'utilisations :
+Exemples d'utilisations :
 
 ```java
 // lire les données
@@ -154,7 +154,7 @@ Nous avons utilisé seulement quelques URLs :
 > - cette URL sert à créer un compte sur le serveur
 > - cela renvoie un ID sous forme de string
 
-### Connaitre le quiz d'un utilisateur
+### Connaître le quiz d'un utilisateur
 
 ```url
 "action=get&obj=valeur&idU="+this.creatorId
@@ -162,9 +162,9 @@ Nous avons utilisé seulement quelques URLs :
 
 > Legende :
 >
-> - Cette URL permet de connaitre toutes les valeurs du compte `this.creatorId` et donc de récupérer les valeurs du quiz
+> - Cette URL permet de connaître toutes les valeurs du compte `this.creatorId` et donc de récupérer les valeurs du quiz
 
-### Connaitre le nombre de quiz créé par un utilisateur
+### Connaître le nombre de quiz créé par un utilisateur
 
 ```url
 "action=get&obj=valeur&type=quiz&idU="+id_user
@@ -172,7 +172,7 @@ Nous avons utilisé seulement quelques URLs :
 
 > Legende :
 >
-> - Cette URL permet de connaître les valeurs de type `quiz` de l'id `id_user`
+> - Cette URL permet de connaître les valeurs de type `quiz` de l'utilisateur d'id `id_user`
 
 ### Récupérer le quiz
 
@@ -184,7 +184,7 @@ Nous avons utilisé seulement quelques URLs :
 >
 > - Cette URL permet de connaître les valeurs de type `quiz`
 
-## Utilisation des éléments Android
+## Utilisation des éléments Androids
 
 - ListView (menu démarrage)
 - Recycler view (liste des quizs)
@@ -194,6 +194,9 @@ Nous avons utilisé seulement quelques URLs :
 - RadioButton
 - Button
 - WebView
+- Fragments (pour le quiz, agit comme une "sous-activité")
+- urlConnection
+- JSONObject
 
 ## Avantages et inconvénients
 
@@ -210,9 +213,9 @@ Nous avons utilisé seulement quelques URLs :
 
 ## Difficultés
 
-- Certains membres du groupe n’était pas très à l’aise avec le Java
-- Certains membres du groupe n’avait pas la possibilité de travailler chez eux
-- Utilisation du ReclyclerView
+- Certains membres du groupe n’étaient pas très à l’aise avec le Java
+- Certains membres du groupe n’avaient pas la possibilité de travailler chez eux
+- Utilisation du ReclyclerView (utilisation d'un tutoriel et du cours pour le mettre en place, le code a été compris)
 
 ## Améliorations possible du programme
 
