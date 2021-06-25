@@ -2,6 +2,7 @@
 
 <details>
 <summary>Click to expand</summary>
+
 - [Principale activités](#principale-activités)
 - [Répartition des tâches](#répartition-des-tâches)
 - [Temps de travail](#temps-de-travail)
@@ -22,6 +23,7 @@
 - [Difficultés](#difficultés)
 - [Améliorations possible du programme](#améliorations-possible-du-programme)
 - [Apport du module](#apport-du-module)
+
 </details>
 
 ---
