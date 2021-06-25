@@ -23,6 +23,7 @@
 - [Difficultés](#difficultés)
 - [Améliorations possible du programme](#améliorations-possible-du-programme)
 - [Apport du module](#apport-du-module)
+- [Captures d'écran](#captures-décran)
 
 </details>
 
@@ -227,3 +228,7 @@ Nous avons utilisé seulement quelques URLs :
 - apprentissage d’android
 - utilisation variée de composants (listView, Input, RecyclerView, Fragment, urlConnection…)
 - (re-) Apprentissage du JAVA  pour certains
+
+## Captures d'écran
+
+Des captures d'écran sont disponbile dans le dossier `screenshots`
